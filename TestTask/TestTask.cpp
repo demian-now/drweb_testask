@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include "DictionaryImpl.h"
+#include <map>
 
 using namespace std;
 
@@ -16,4 +17,10 @@ int main()
     {
         cout << e.get_key();
     }
+
+    map<string, int> maq;
+    maq["qvn"] = 8;
+    auto it = maq.find("qww");
+    if (it != maq.end())
+        cout << it->second;
 }

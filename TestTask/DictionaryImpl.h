@@ -21,11 +21,12 @@ private:
     std::map<Key, Value> data;
 
 public:
-    DictionaryImpl() = default;
+    ~DictionaryImpl() = default;
     const Value& get(const Key& key) const 
     {
-        if (this->is_set(key))
-            return this->data.at(key);
+        auto it = this->data.find(key);
+        if (it != this->data.end())
+            return it->second;
         throw NotFoundException<Key>(key);
     }
     void set(const Key& key, const Value& value)
